@@ -4,7 +4,7 @@ node {
         checkout scm
     }
     stage('Build image'){
-        app = docker.image('kaci/nginx')
+        app = docker.build('kaci/nginx')
     }
     stage('Run image') {
         docker.image('kaci/nginx').withRun('-p 81:80') {c ->
